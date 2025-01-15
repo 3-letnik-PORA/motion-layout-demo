@@ -9,9 +9,6 @@ Ponuja deklarativen način definiranja animacij v XML, kar olajša vizualizacijo
 
 ## Prednosti 👍
 - **Enostavnost uporabe**: MotionLayout omogoča ustvarjanje animacij z uporabo deklarativnega pristopa na osnovi XML, neglede na kompleksnost animacije.
-- **Integracija**: Je del knjižnice ConstraintLayout, ki je široko uporabljena in dobro integrirana v ekosistem Android.
-- **Večstopenjski prehodi**: Omogoča definiranje animacij z več stopnjami ali stanji, kar omogoča ustvarjanje kompleksnejšega uporabniškega vmesnika
-- **Fleksibilnost**: Podpira širok spekter animacij in prehodov, vključno s ključnimi sličicami, lajšanjem in prilagojenimi atributi.
 - **Orodja**: Android Studio ima vgrajen Motion Editor za vizualno oblikovanje in predogled animacij.
 
 ---
