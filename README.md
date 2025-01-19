@@ -182,8 +182,76 @@ Na koncu XML datoteka **activity_main_scene** izgleda tako:
 
 ---
 
-## Uporaba v aplikaciji (projektna naloga):
+## Uporaba v aplikaciji (Budget app)
 
+card_monthly_budget.xml:
 ```XML
-<!--TODO-->
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layoutDescription="@xml/scene_card_monthly_budget">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvMonthlyBudget"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="@dimen/card_elevation"
+        app:cardCornerRadius="@dimen/card_corner_radius"
+        app:cardBackgroundColor="?attr/cardBackgroundColor">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clLine"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/padding_medium">
+
+            ...
+
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.motion.widget.MotionLayout>
 ```
+
+scene_card_monthly_budget.xml:
+```XML
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetStart="@id/start"
+        motion:constraintSetEnd="@id/end"
+        motion:duration="1000"
+        motion:autoTransition="animateToEnd">
+        <KeyFrameSet >
+            <KeyAttribute
+                motion:motionTarget="@+id/cvMonthlyBudget"
+                motion:framePosition="0"
+                android:alpha="0.5" />
+            <KeyAttribute
+                motion:motionTarget="@+id/cvMonthlyBudget"
+                motion:framePosition="100"
+                android:alpha="1" />
+        </KeyFrameSet>
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@id/cvMonthlyBudget"
+            android:layout_width="match_parent"
+            android:layout_height="1dp" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@id/cvMonthlyBudget"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </ConstraintSet>
+</MotionScene>
+```
+
